@@ -5,21 +5,24 @@ import TypescriptLogo from '../assets/Typescript.svg.png';
 import TailwindLogo from '../assets/Tailwindcss.png';
 import NextjsLogo from '../assets/nextjs.png';
 import PythonLogo from '../assets/Python.webp';
+import FlutterLogo from '../assets/flutter.svg';
+import MySQLLogo from '../assets/mysql.png';
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/use-scroll-animation';
 
 const SkillsSection: React.FC = () =>{
   const expertiseSkills = [
-    { name: 'React', icon: ReactLogo },
-    { name: 'Javascript', icon: JavascriptLogo },
-    { name: 'Typescript', icon: TypescriptLogo },
-    { name: 'Tailwind CSS', icon: TailwindLogo },
-    { name: 'Next.js', icon: NextjsLogo },
-    { name: 'Python', icon: PythonLogo }
+    { name: 'React JS', icon: ReactLogo },
+    { name: 'Next JS', icon: NextjsLogo },
+    { name: 'JavaScript', icon: JavascriptLogo },
+    { name: 'Python', icon: PythonLogo },
+    { name: 'Flutter', icon: FlutterLogo },
+    { name: 'MySQL', icon: MySQLLogo },
+    { name: 'TypeScript', icon: TypescriptLogo },
+    { name: 'Tailwind CSS', icon: TailwindLogo }
   ];
 
   const additionalSkills = [
-    'React Native','MySQL','Node Js','Zustand', 'Express.js', 
-    'Git/GitHub', 'REST APIs', 'FastAPI','Bootstrap', 'AI Models'
+    'AI Models Training', 'Whisper-large-v3', 'Distilbert-base-uncased', 'REST APIs', 'Zustand', 'C++', 'Git', 'FastAPI', 'Bootstrap'
   ];
 
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
@@ -27,119 +30,54 @@ const SkillsSection: React.FC = () =>{
   const { ref: badgesRef, visibleItems: badgesVisible } = useStaggerAnimation(additionalSkills.length, 100);
 
   return (
-    <section id="skills" style={{ 
-      padding: '80px 24px', 
-      position: 'relative' 
-    }}>
-      <div className="gradient-bg" style={{ position: 'absolute', inset: 0, opacity: 0.3 }}></div>
-      
-      <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
-        <div ref={titleRef} className={`animate-on-scroll ${titleVisible ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ 
-            fontSize: '48px', 
-            fontWeight: 'bold', 
-            marginBottom: '16px',
-            marginTop: '-25px'
-          }}>
-            <span style={{ color: 'white' }}>MY </span>
-            <span className="neon-text" style={{ color: '#00bfff' }}>SKILLS</span>
+    <section id="skills" className="py-32 relative overflow-hidden bg-gradient-to-b from-slate-950/20 to-black/20">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div ref={titleRef} className={`text-center mb-20 animate-on-scroll ${titleVisible ? 'visible' : ''}`}>
+          <h2 className="text-4xl lg:text-5xl font-black mb-6">
+            <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">My </span>
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Skills</span>
           </h2>
-          <p style={{ 
-            color: '#999999', 
-            fontSize: '18px', 
-            maxWidth: '600px', 
-            margin: '0 auto'
-          }}>
-Building modern, user-focused applications with clean code, scalable architecture, and the latest web technologies.          </p>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            Crafting exceptional digital experiences with cutting-edge technologies and best practices
+          </p>
         </div>
 
-        {/* Expertise Section */}
-        <div style={{ marginBottom: '60px' }}>
-          <h3 style={{ 
-            fontSize: '32px', 
-            fontWeight: 'bold', 
-            marginBottom: '40px', 
-            color: '#00bfff', 
-            textAlign: 'center' 
-          }}>
-            Core Expertise
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold mb-8 text-center">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Core Expertise</span>
           </h3>
-          <div ref={skillsRef} className="skills-grid" style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(6, 1fr)', 
-            gap: '20px' 
-          }}>
+          <div ref={skillsRef} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {expertiseSkills.map((skill, index) => (
-              <div key={skill.name} className={`skill-card hover-lift hover-glow animate-on-scroll-scale ${skillsVisible[index] ? 'visible' : ''}`} style={{ 
-                backgroundColor: 'rgba(255, 255, 255, 0.05)', 
-                padding: '24px', 
-                borderRadius: '12px', 
-                border: '1px solid rgba(0, 191, 255, 0.2)',
-                backdropFilter: 'blur(10px)',
-                transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                transitionDelay: `${index * 0.1}s`
-              }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img src={skill.icon} alt={`${skill.name} logo`} className="skill-icon" style={{ 
-                    width: skill.name === 'Next.js' ? '45px' : skill.name === 'Python' ? '45px' : '40px', 
-                    height: skill.name === 'Next.js' ? '45px' : skill.name === 'Python' ? '45px' : '40px', 
-                    marginBottom: '12px', 
-                    objectFit: 'contain', 
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' 
-                  }} />
-                  <h4 className="skill-name" style={{ 
-                    fontSize: '20px', 
-                    fontWeight: '600', 
-                    color: 'white' 
-                  }}>{skill.name}</h4>
+              <div key={skill.name} className={`group relative animate-on-scroll-scale ${skillsVisible[index] ? 'visible' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
+                <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:border-blue-400/50">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 flex flex-col items-center text-center space-y-4">
+                    <div className="w-16 h-16 flex items-center justify-center bg-white/10 rounded-xl">
+                      <img 
+                        src={skill.icon} 
+                        alt={`${skill.name} logo`} 
+                        className="w-10 h-10 object-contain filter brightness-110 contrast-110 group-hover:drop-shadow-lg group-hover:scale-110 transition-all duration-300" 
+                      />
+                    </div>
+                    <h4 className="font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                      {skill.name}
+                    </h4>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Additional Skills Section */}
-        <div>
-          <h3 style={{ 
-            fontSize: '32px', 
-            fontWeight: 'bold', 
-            marginBottom: '40px', 
-            color: '#00bfff', 
-            textAlign: 'center' 
-          }}>
-            Additional Skills
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-8">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Additional Skills</span>
           </h3>
-          <div ref={badgesRef} className="additional-skills" style={{ 
-            display: 'flex', 
-            flexWrap: 'wrap', 
-            gap: '16px', 
-            justifyContent: 'center'
-          }}>
+          <div ref={badgesRef} className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
             {additionalSkills.map((skill, index) => (
-              <div key={skill} className={`skill-badge hover-scale animate-on-scroll ${badgesVisible[index] ? 'visible' : ''}`} style={{ 
-                backgroundColor: 'rgba(0, 191, 255, 0.1)', 
-                color: '#00bfff',
-                padding: '12px 20px', 
-                borderRadius: '25px', 
-                border: '1px solid rgba(0, 191, 255, 0.3)',
-                fontSize: '14px',
-                fontWeight: '500',
-                transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                cursor: 'pointer',
-                transitionDelay: `${index * 0.05}s`
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(0, 191, 255, 0.2)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 191, 255, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(0, 191, 255, 0.1)';
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}>
+              <span key={skill} className={`px-6 py-3 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-full text-sm font-medium hover:bg-blue-500/20 hover:border-blue-400/50 hover:text-blue-400 transition-all duration-300 cursor-default animate-on-scroll ${badgesVisible[index] ? 'visible' : ''}`} style={{ transitionDelay: `${index * 0.05}s` }}>
                 {skill}
-              </div>
+              </span>
             ))}
           </div>
         </div>

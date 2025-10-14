@@ -47,155 +47,67 @@ const Header: React.FC = () => {
 
   return (
     <>
-    <header className={`header-responsive animate-slide-in-down ${isLoaded ? 'visible' : ''}`} style={{ 
-      display: 'flex', 
-      justifyContent: 'space-between', 
-      alignItems: 'center', 
-      padding: '24px', 
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      zIndex: 1000,
-      backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.9)' : 'transparent',
-      backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-      borderBottom: isScrolled ? '1px solid rgba(0, 191, 255, 0.2)' : 'none',
-      transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-      opacity: isLoaded ? 1 : 0,
-      transform: isLoaded ? 'translateY(0)' : 'translateY(-100%)'
-    }}>
-      <div className="logo-responsive" style={{ fontSize: '24px', fontWeight: 'bold' }}>
-        <span style={{ color: 'white' }}>HAMZA</span>
-        <span className="neon-text" style={{ color: '#00bfff' }}>.DEV</span>
-      </div>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      isScrolled ? 'bg-white/10 backdrop-blur-2xl border-b border-white/20 shadow-2xl' : 'bg-transparent'
+    } ${
+      isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="text-2xl font-black tracking-tight">
+          <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">HAMZA</span>
+          <span className="text-blue-400">.DEV</span>
+        </div>
       
-      {/* Desktop Navigation */}
-      <nav className="nav-desktop" style={{ 
-        display: 'flex', 
-        gap: '32px' 
-      }}>
+        <nav className="hidden md:flex items-center gap-8">
         {navItems.map((item, index) => (
           <button
             key={item.id}
             onClick={() => scrollToSection(item.id)}
-            className="hover-glow"
-            style={{ 
-              color: activeSection === item.id ? '#00bfff' : 'white', 
-              textDecoration: 'none',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '16px',
-              fontWeight: activeSection === item.id ? '600' : '400',
-              transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-              position: 'relative',
-              opacity: isLoaded ? 1 : 0,
-              transform: isLoaded ? 'translateY(0)' : 'translateY(-20px)',
-              transitionDelay: `${0.1 + index * 0.1}s`
-            }}
-            onMouseEnter={(e) => {
-              if (activeSection !== item.id) {
-                e.currentTarget.style.color = '#00bfff';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (activeSection !== item.id) {
-                e.currentTarget.style.color = 'white';
-              }
-            }}
+            className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              activeSection === item.id 
+                ? 'text-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20' 
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            } ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'
+            }`}
+            style={{ transitionDelay: `${0.1 + index * 0.1}s` }}
           >
             {item.label}
-            {activeSection === item.id && (
-              <div style={{
-                position: 'absolute',
-                bottom: '-4px',
-                left: 0,
-                right: 0,
-                height: '2px',
-                backgroundColor: '#00bfff',
-                borderRadius: '1px'
-              }} />
-            )}
+
           </button>
         ))}
-      </nav>
+        </nav>
 
-      {/* Mobile Menu Button */}
-      <button
-        className="mobile-menu-btn"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        style={{
-          display: 'none',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '30px',
-          height: '30px',
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
-          padding: 0
-        }}
-      >
-        <div style={{
-          width: '25px',
-          height: '3px',
-          backgroundColor: '#00bfff',
-          margin: '3px 0',
-          transition: 'all 0.3s ease',
-          transform: isMobileMenuOpen ? 'rotate(45deg) translate(6px, 6px)' : 'none'
-        }} />
-        <div style={{
-          width: '25px',
-          height: '3px',
-          backgroundColor: '#00bfff',
-          margin: '3px 0',
-          transition: 'all 0.3s ease',
-          opacity: isMobileMenuOpen ? 0 : 1
-        }} />
-        <div style={{
-          width: '25px',
-          height: '3px',
-          backgroundColor: '#00bfff',
-          margin: '3px 0',
-          transition: 'all 0.3s ease',
-          transform: isMobileMenuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none'
-        }} />
-      </button>
+        <button
+          className="md:hidden p-2 rounded-lg bg-white/10 backdrop-blur-sm"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <div className="w-6 h-6 flex flex-col justify-center items-center">
+            <div className={`w-5 h-0.5 bg-white transition-all duration-300 ${
+              isMobileMenuOpen ? 'rotate-45 translate-y-1' : 'mb-1'
+            }`} />
+            <div className={`w-5 h-0.5 bg-white transition-all duration-300 ${
+              isMobileMenuOpen ? 'opacity-0' : 'mb-1'
+            }`} />
+            <div className={`w-5 h-0.5 bg-white transition-all duration-300 ${
+              isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
+            }`} />
+          </div>
+        </button>
+      </div>
     </header>
 
-    {/* Mobile Menu Overlay */}
     {isMobileMenuOpen && (
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.95)',
-        backdropFilter: 'blur(10px)',
-        zIndex: 999,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '30px'
-      }}>
+      <div className="fixed inset-0 bg-black/90 backdrop-blur-2xl z-40 flex flex-col justify-center items-center gap-8">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => scrollToSection(item.id)}
-            style={{
-              color: activeSection === item.id ? '#00bfff' : 'white',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '24px',
-              fontWeight: activeSection === item.id ? '600' : '400',
-              transition: 'all 0.3s ease',
-              textTransform: 'uppercase',
-              letterSpacing: '2px'
-            }}
+            className={`px-8 py-4 rounded-2xl text-xl font-medium transition-all duration-300 ${
+              activeSection === item.id 
+                ? 'text-blue-400 bg-blue-400/20 shadow-xl shadow-blue-400/30' 
+                : 'text-white hover:text-blue-400 hover:bg-white/10'
+            }`}
           >
             {item.label}
           </button>

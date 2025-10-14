@@ -88,154 +88,62 @@ const ContactSection: React.FC = () => {
   const { ref: formRef, isVisible: formVisible } = useScrollAnimation(300);
 
   return (
-    <section id="contact" style={{ 
-      padding: '80px 24px', 
-      position: 'relative' 
-    }}>
+    <section id="contact" className="py-20 px-6 relative md:py-16 md:px-4">
       {showSuccess && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.8)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000
-        }}>
-          <div style={{
-            backgroundColor: 'rgba(0, 191, 255, 0.1)',
-            border: '2px solid #00bfff',
-            borderRadius: '16px',
-            padding: '40px',
-            textAlign: 'center',
-            backdropFilter: 'blur(10px)',
-            boxShadow: '0 20px 40px rgba(0, 191, 255, 0.3)'
-          }}>
-            <div style={{ fontSize: '48px', marginBottom: '16px' }}>✅</div>
-            <h3 style={{ color: '#00bfff', fontSize: '24px', marginBottom: '12px' }}>Message Sent!</h3>
-            <p style={{ color: 'white', fontSize: '16px' }}>Thank you for your message! I'll get back to you soon.</p>
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+          <div className="bg-gradient-to-br from-blue-600/20 to-blue-500/10 border-2 border-blue-400/60 rounded-2xl p-10 text-center backdrop-blur-md shadow-2xl shadow-blue-500/40">
+            <div className="text-5xl mb-4">✅</div>
+            <h3 className="text-blue-400 text-2xl mb-3 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]">Message Sent!</h3>
+            <p className="text-slate-100 text-base">Thank you for your message! I'll get back to you soon.</p>
           </div>
         </div>
       )}
-      <div className="gradient-bg" style={{ position: 'absolute', inset: 0, opacity: 0.2 }}></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-blue-950/10 to-black"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(59,130,246,0.06),transparent_70%)]"></div>
       
-      <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
-        <div ref={titleRef} className={`animate-on-scroll ${titleVisible ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ 
-            fontSize: '48px', 
-            fontWeight: 'bold', 
-            marginBottom: '16px',
-            marginTop: '-25px' 
-          }}>
-            <span style={{ color: 'white' }}>LET'S </span>
-            <span className="neon-text" style={{ color: '#00bfff' }}>WORK TOGETHER</span>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div ref={titleRef} className={`animate-on-scroll text-center mb-16 ${titleVisible ? 'visible' : ''}`}>
+          <h2 className="text-5xl md:text-4xl sm:text-3xl font-bold mb-4 -mt-6">
+            <span className="text-slate-100">LET'S </span>
+            <span className="text-blue-400 drop-shadow-[0_0_20px_rgba(59,130,246,0.8)]">WORK TOGETHER</span>
           </h2>
-          <p style={{ 
-            color: '#999999', 
-            fontSize: '18px', 
-            maxWidth: '600px', 
-            margin: '0 auto'
-          }}>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
           </p>
         </div>
 
-        <div className="contact-grid" style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '1fr 1fr', 
-          gap: '60px', 
-          alignItems: 'start' 
-        }}>
-          {/* Contact Information */}
+        <div className="grid grid-cols-2 gap-16 items-start">
+          {/* Get In Touch - Left Side */}
           <div className={`animate-on-scroll-left ${titleVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
-            <h3 style={{ 
-              fontSize: '32px', 
-              fontWeight: 'bold', 
-              marginBottom: '30px', 
-              color: '#00bfff' 
-            }}>
-              Get In Touch
+            <h3 className="text-3xl md:text-2xl font-bold mb-8">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Get In Touch</span>
             </h3>
-            <p style={{ 
-              color: '#cccccc', 
-              marginBottom: '40px', 
-              lineHeight: '1.6',
-              fontSize: '16px'
-            }}>
+            <p className="text-gray-300 mb-10 leading-relaxed text-base">
               I'm always open to discussing new opportunities, creative projects, or potential collaborations. 
               Whether you have a question or just want to say hi, feel free to reach out!
             </p>
 
-            <div ref={contactInfoRef} style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              gap: '20px', 
-              marginBottom: '40px' 
-            }}>
+            <div ref={contactInfoRef} className="flex flex-col gap-5 mb-10">
               {contactInfo.map((info, index) => (
-                <a key={index} href={info.link} target="_blank" rel="noopener noreferrer" className={`hover-glow animate-on-scroll-left ${contactInfoVisible[index] ? 'visible' : ''}`} style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  padding: '16px', 
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)', 
-                  borderRadius: '12px',
-                  border: '1px solid rgba(0, 191, 255, 0.2)',
-                  textDecoration: 'none',
-                  color: 'inherit',
-                  transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                  transitionDelay: `${index * 0.1}s`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(0, 191, 255, 0.1)';
-                  e.currentTarget.style.transform = 'translateX(10px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                  e.currentTarget.style.transform = 'translateX(0)';
-                }}>
-                  <span style={{ fontSize: '24px', marginRight: '16px' }}>{info.icon}</span>
+                <a key={index} href={info.link} target="_blank" rel="noopener noreferrer" className={`flex items-center p-4 md:p-3 bg-gradient-to-r from-slate-800/30 to-blue-950/20 rounded-xl border border-blue-400/30 no-underline text-inherit transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-blue-500/10 hover:translate-x-2 hover:border-blue-300/50 hover:shadow-lg hover:shadow-blue-400/20 animate-on-scroll-left ${contactInfoVisible[index] ? 'visible' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
+                  <span className="text-2xl md:text-xl mr-4 md:mr-3">{info.icon}</span>
                   <div>
-                    <div style={{ color: '#00bfff', fontSize: '14px', fontWeight: '500' }}>{info.title}</div>
-                    <div style={{ color: 'white', fontSize: '16px' }}>{info.value}</div>
+                    <div className="text-blue-400 text-sm font-medium md:text-xs">{info.title}</div>
+                    <div className="text-slate-100 text-base md:text-sm">{info.value}</div>
                   </div>
                 </a>
               ))}
             </div>
-
-
           </div>
 
-          {/* Contact Form */}
-          <div ref={formRef} className={`contact-form hover-glow animate-on-scroll-right ${formVisible ? 'visible' : ''}`} style={{ 
-            backgroundColor: 'rgba(255, 255, 255, 0.05)', 
-            padding: '40px', 
-            borderRadius: '16px',
-            border: '1px solid rgba(0, 191, 255, 0.2)',
-            backdropFilter: 'blur(10px)',
-            transitionDelay: '0.4s'
-          }}>
-            <h3 style={{ 
-              fontSize: '24px', 
-              fontWeight: 'bold', 
-              marginBottom: '30px', 
-              color: 'white' 
-            }}>
-              Contact Me
+          {/* Contact Me - Right Side */}
+          <div ref={formRef} className={`bg-gradient-to-br from-slate-800/40 to-blue-950/20 p-10 md:p-6 rounded-2xl border border-blue-400/30 backdrop-blur-md transition-all duration-300 ease-out hover:shadow-xl hover:shadow-blue-500/25 hover:border-blue-300/50 animate-on-scroll-right ${formVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+            <h3 className="text-2xl font-bold mb-8">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Contact Me</span>
             </h3>
             
-            <form onSubmit={handleSubmit} action="https://formspree.io/f/mzzakgaq" method="POST" style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              gap: '20px' 
-            }}>
-              <div className="form-row" style={{ 
-                display: 'grid', 
-                gridTemplateColumns: '1fr 1fr', 
-                gap: '16px' 
-              }}>
+            <form onSubmit={handleSubmit} action="https://formspree.io/f/mzzakgaq" method="POST" className="flex flex-col gap-5">
+              <div className="grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-3">
                 <input
                   type="text"
                   name="name"
@@ -243,24 +151,7 @@ const ContactSection: React.FC = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  style={{
-                    padding: '16px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    border: '1px solid rgba(0, 191, 255, 0.3)',
-                    borderRadius: '8px',
-                    color: 'white',
-                    fontSize: '16px',
-                    outline: 'none',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#00bfff';
-                    e.currentTarget.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
+                  className="p-4 md:p-3 bg-slate-800/30 border border-blue-400/40 rounded-lg text-slate-100 text-base md:text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-400 focus:shadow-lg focus:shadow-blue-400/30 focus:bg-slate-700/40"
                 />
                 <input
                   type="email"
@@ -269,24 +160,7 @@ const ContactSection: React.FC = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  style={{
-                    padding: '16px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    border: '1px solid rgba(0, 191, 255, 0.3)',
-                    borderRadius: '8px',
-                    color: 'white',
-                    fontSize: '16px',
-                    outline: 'none',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#00bfff';
-                    e.currentTarget.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
+                  className="p-4 md:p-3 bg-slate-800/30 border border-blue-400/40 rounded-lg text-slate-100 text-base md:text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-400 focus:shadow-lg focus:shadow-blue-400/30 focus:bg-slate-700/40"
                 />
               </div>
               
@@ -297,24 +171,7 @@ const ContactSection: React.FC = () => {
                 value={formData.subject}
                 onChange={handleInputChange}
                 required
-                style={{
-                  padding: '16px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(0, 191, 255, 0.3)',
-                  borderRadius: '8px',
-                  color: 'white',
-                  fontSize: '16px',
-                  outline: 'none',
-                  transition: 'all 0.3s ease'
-                }}
-                onFocus={(e) => {
-                  e.currentTarget.style.borderColor = '#00bfff';
-                  e.currentTarget.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
+                className="p-4 md:p-3 bg-slate-800/30 border border-blue-400/40 rounded-lg text-slate-100 text-base md:text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-400 focus:shadow-lg focus:shadow-blue-400/30 focus:bg-slate-700/40"
               />
               
               <textarea
@@ -324,60 +181,18 @@ const ContactSection: React.FC = () => {
                 onChange={handleInputChange}
                 required
                 rows={6}
-                style={{
-                  padding: '16px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(0, 191, 255, 0.3)',
-                  borderRadius: '8px',
-                  color: 'white',
-                  fontSize: '16px',
-                  outline: 'none',
-                  resize: 'vertical',
-                  fontFamily: 'inherit',
-                  transition: 'all 0.3s ease'
-                }}
-                onFocus={(e) => {
-                  e.currentTarget.style.borderColor = '#00bfff';
-                  e.currentTarget.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
+                className="p-4 md:p-3 bg-slate-800/30 border border-blue-400/40 rounded-lg text-slate-100 text-base md:text-sm outline-none resize-y font-inherit transition-all duration-300 ease-in-out focus:border-blue-400 focus:shadow-lg focus:shadow-blue-400/30 focus:bg-slate-700/40"
               />
               
               <button
                 type="submit"
-                className="hover-lift hover-glow"
-                style={{
-                  padding: '16px 32px',
-                  backgroundColor: '#00bfff',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  fontSize: '16px',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#0080ff';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 191, 255, 0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#00bfff';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
+                className="p-4 px-8 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white border-none rounded-lg text-base font-semibold cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/40"
               >
                 🚀 Send Message
               </button>
             </form>
           </div>
         </div>
-
-
       </div>
     </section>
   );

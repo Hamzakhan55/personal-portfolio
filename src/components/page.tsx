@@ -5,11 +5,14 @@ import SkillsSection from './SkillsSection';
 import ExperienceSection from './ExperienceSection';
 import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
+import BackgroundAnimation from './BackgroundAnimation';
 
 const Portfolio: React.FC = () => {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#000000', color: '#ffffff' }}>
-      <Header />
+    <div className="min-h-screen bg-black text-white relative">
+      <BackgroundAnimation />
+      <div className="relative z-10">
+        <Header />
       <HeroSection />
       <SkillsSection />
       <ExperienceSection />
@@ -17,26 +20,15 @@ const Portfolio: React.FC = () => {
       <ContactSection />
       
       {/* Footer */}
-      <footer className="footer-responsive" style={{ 
-        padding: '40px 24px', 
-        textAlign: 'center', 
-        borderTop: '1px solid rgba(0, 191, 255, 0.2)',
-        backgroundColor: 'rgba(0, 0, 0, 0.8)'
-      }}>
-        <p className="footer-text" style={{ 
-          color: '#999999', 
-          marginBottom: '16px',
-          fontSize: '16px'
-        }}>
-          © 2025 Hamza. Crafted with passion and dedication.
-        </p>
-        <p className="footer-subtext" style={{ 
-          color: '#00bfff', 
-          fontSize: '14px'
-        }}>
-          Built with React, TypeScript
-        </p>
-      </footer>
+        <footer className="py-10 px-6 md:py-8 md:px-4 text-center border-t border-blue-400/30 bg-gradient-to-t from-slate-900 to-black/80">
+          <p className="text-slate-300/80 mb-4 text-base md:text-sm">
+            © 2025 Hamza. Crafted with passion and dedication.
+          </p>
+          <p className="text-blue-400 text-sm md:text-xs drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]">
+            Built with React, TypeScript
+          </p>
+        </footer>
+      </div>
     </div>
   );
 };
