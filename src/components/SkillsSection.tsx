@@ -30,14 +30,14 @@ const SkillsSection: React.FC = () =>{
   const { ref: badgesRef, visibleItems: badgesVisible } = useStaggerAnimation(additionalSkills.length, 100);
 
   return (
-    <section id="skills" className="py-32 relative overflow-hidden bg-gradient-to-b from-slate-950/20 to-black/20">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="skills" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-slate-950/20 to-black/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div ref={titleRef} className={`text-center mb-20 animate-on-scroll ${titleVisible ? 'visible' : ''}`}>
-          <h2 className="text-4xl lg:text-5xl font-black mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6">
             <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">My </span>
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Skills</span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Crafting exceptional digital experiences with cutting-edge technologies and best practices
           </p>
         </div>
@@ -46,7 +46,7 @@ const SkillsSection: React.FC = () =>{
           <h3 className="text-2xl font-bold mb-8 text-center">
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Core Expertise</span>
           </h3>
-          <div ref={skillsRef} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+          <div ref={skillsRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-6">
             {expertiseSkills.map((skill, index) => (
               <div key={skill.name} className={`group relative animate-on-scroll-scale ${skillsVisible[index] ? 'visible' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
                 <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:border-blue-400/50">

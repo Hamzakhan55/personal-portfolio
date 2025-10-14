@@ -14,24 +14,24 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/20 to-black"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.15),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(147,51,234,0.1),transparent_50%)]"></div>
       
-      <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center relative z-10">
-        <div className={`space-y-6 animate-on-scroll-left ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
+        <div className={`space-y-6 animate-on-scroll-left order-2 lg:order-1 ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
           <div className="space-y-3">
             <div className="inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-sm font-medium backdrop-blur-sm">
               👋 Hello, I'm
             </div>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
               <span className="bg-gradient-to-r from-white via-slate-200 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">HAMZA KHAN</span>
             </h1>
             
           </div>
         
-          <div className="flex items-center gap-2 text-2xl text-slate-300">
+          <div className="flex items-center gap-2 text-lg sm:text-xl lg:text-2xl text-slate-300">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
             <span className="font-medium">Full Stack Developer</span>
           </div>
         
-          <p className="text-lg lg:text-xl text-slate-300 leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed max-w-2xl">
             I’m a full-stack developer passionate about building scalable web applications and innovative AI-powered solutions, leveraging modern technologies to create intelligent digital experiences.
           </p>
         
@@ -89,7 +89,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        <div className={`flex justify-center lg:justify-end animate-on-scroll-right px-8 ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+        <div className={`flex justify-center lg:justify-end animate-on-scroll-right px-8 order-1 lg:order-2 ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
           <div className="relative">
             {/* Flowing Tech Icons */}
             <div className="absolute -top-8 -left-8 w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center animate-spin border border-blue-400/30" style={{ animationDuration: '8s' }}>
@@ -113,7 +113,7 @@ const HeroSection: React.FC = () => {
 
             
             {/* Main profile container */}
-            <div className="relative w-72 h-72 lg:w-84 lg:h-84">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-84 lg:h-84">
               {/* Outer glow ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30 blur-xl animate-pulse"></div>
               

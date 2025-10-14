@@ -128,19 +128,19 @@ const ProjectsSection: React.FC = () => {
   const { ref: projectsRef, visibleItems: projectsVisible } = useStaggerAnimation(projects.length, 200);
 
   return (
-    <section id="projects" className="py-32 relative overflow-hidden bg-gradient-to-b from-black/20 via-slate-950/20 to-black/20">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="projects" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-black/20 via-slate-950/20 to-black/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div ref={titleRef} className={`text-center mb-20 animate-on-scroll ${titleVisible ? 'visible' : ''}`}>
-          <h2 className="text-4xl lg:text-5xl font-black mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6">
             <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">My </span>
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Projects</span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Discover my latest work showcasing innovation, creativity, and technical excellence
           </p>
         </div>
 
-        <div ref={projectsRef} className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+        <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {(showAllProjects ? projects : projects.slice(0, 6)).map((project, index) => (
             <div key={project.id} className={`group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden transition-all duration-500 hover:bg-white/10 hover:scale-[1.02] hover:border-blue-400/50 animate-on-scroll-scale ${
               project.featured ? 'ring-2 ring-blue-400/30 shadow-2xl shadow-blue-500/20' : ''
