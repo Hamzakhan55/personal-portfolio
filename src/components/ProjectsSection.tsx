@@ -7,6 +7,7 @@ import simonimg from '../assets/simon.png'
 import carrentalimg from '../assets/carRental.png'
 import loginimg from '../assets/login.png'
 import landingimag from '../assets/simplelanding.png'
+import Bytebattle from '../assets/Bytebattle.jpg';
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/use-scroll-animation';
 
 const ProjectsSection: React.FC = () => {
@@ -38,7 +39,7 @@ const ProjectsSection: React.FC = () => {
       title: 'Byte Battle Quiz App',
       Subtitles: '(Real time Quiz competition Platform)',
       description: 'Built a quiz application with real-time buzzer system using React/TypeScript, Node.js, and Socket.IO. Integrated AI question generation via Flask and T5 model for automated MCQ creation. Features live scoreboard, JWT authentication, and admin dashboard for comprehensive quiz management.',
-  
+      image: Bytebattle,
       technologies: ['React Js', 'Typescript', 'Node Js', 'Socket.IO', 'Python','Flask','MySQL'],
       liveUrl: '#',
       githubUrl: 'https://github.com/Hamzakhan55/',
