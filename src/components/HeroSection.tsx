@@ -64,7 +64,8 @@ const HeroSection: React.FC = () => {
         </div>
 
         <div className={`flex justify-center lg:justify-end animate-on-scroll-right px-4 sm:px-8 order-1 lg:order-2 w-full ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
-          <div className="relative">
+          {/* Clip absolutely-positioned decorations so they can't push viewport width */}
+          <div className="relative overflow-hidden">
             {/* Flowing Tech Icons */}
             <div className="hidden sm:block absolute top-2 sm:-top-8 -left-8 w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center animate-spin border border-blue-400/30" style={{ animationDuration: '8s' }}>
               <svg className="w-6 h-6 text-blue-400 animate-pulse" viewBox="0 0 24 24" fill="currentColor">

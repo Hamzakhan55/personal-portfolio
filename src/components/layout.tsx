@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="font-sans antialiased overflow-x-hidden">
+    <div className="font-sans antialiased overflow-x-hidden" style={{ overflowX: 'hidden', maxWidth: '100vw' }}>
       {children}
     </div>
   )

@@ -3,10 +3,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Prevent any accidental horizontal overflow from escaping the viewport */
+    overflow-x: hidden;
   }
   
   body {
-    @apply bg-black text-white overflow-x-hidden;
+    @apply bg-black text-white;
+    /* Ensure body never forces horizontal scroll */
+    overflow-x: hidden;
     font-family: system-ui, -apple-system, sans-serif;
     width: 100%;
     max-width: 100vw;
