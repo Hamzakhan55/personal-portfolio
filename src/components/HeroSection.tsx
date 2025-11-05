@@ -14,13 +14,13 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/20 to-black"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.15),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(147,51,234,0.1),transparent_50%)]"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10 w-full">
-        <div className={`space-y-6 animate-on-scroll-left order-2 lg:order-1 ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10 w-full min-w-0">
+        <div className={`space-y-6 animate-on-scroll-left order-2 lg:order-1 w-full max-w-full ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
           <div className="space-y-3">
             <div className="inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-sm font-medium backdrop-blur-sm">
               👋 Hello, I'm
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight break-words">
               <span className="bg-gradient-to-r from-white via-slate-200 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">HAMZA KHAN</span>
             </h1>
             
@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
             <span className="font-medium">Full Stack Developer</span>
           </div>
         
-          <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed max-w-2xl break-words">
             I’m a full-stack developer passionate about building scalable web applications and innovative AI-powered solutions, leveraging modern technologies to create intelligent digital experiences.
           </p>
         
