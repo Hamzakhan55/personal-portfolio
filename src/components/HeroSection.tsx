@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/20 to-black"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.15),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(147,51,234,0.1),transparent_50%)]"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10 w-full">
         <div className={`space-y-6 animate-on-scroll-left order-2 lg:order-1 ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
           <div className="space-y-3">
             <div className="inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-sm font-medium backdrop-blur-sm">
@@ -63,7 +63,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        <div className={`flex justify-center lg:justify-end animate-on-scroll-right px-8 order-1 lg:order-2 ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+        <div className={`flex justify-center lg:justify-end animate-on-scroll-right px-4 sm:px-8 order-1 lg:order-2 w-full ${isLoaded ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
           <div className="relative">
             {/* Flowing Tech Icons */}
             <div className="hidden sm:block absolute top-2 sm:-top-8 -left-8 w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center animate-spin border border-blue-400/30" style={{ animationDuration: '8s' }}>
@@ -87,7 +87,7 @@ const HeroSection: React.FC = () => {
 
             
             {/* Main profile container */}
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-84 lg:h-84">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-84 lg:h-84 max-w-full">
               {/* Outer glow ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30 blur-xl animate-pulse"></div>
               
