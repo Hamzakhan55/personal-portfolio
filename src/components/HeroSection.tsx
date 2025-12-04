@@ -49,7 +49,7 @@ const HeroSection: React.FC = () => {
             <button 
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = './pdf/HAMZA KHAN.pdf';
+                link.href = './pdf/HAMZAKHAN.pdf';
                 link.download = 'HAMZA_KHAN.pdf';
                 link.click();
               }}
