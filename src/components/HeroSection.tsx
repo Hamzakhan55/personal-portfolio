@@ -49,8 +49,8 @@ const HeroSection: React.FC = () => {
             <button 
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = './pdf/HAMZAKHAN.pdf';
-                link.download = 'HAMZAKHAN.pdf';
+                link.href = './pdf/HAMZA KHAN.pdf';
+                link.download = 'HAMZA_KHAN.pdf';
                 link.click();
               }}
               className="px-8 py-4 border-2 border-white/20 text-white hover:bg-white/10 rounded-2xl font-medium transition-all duration-300 hover:border-white/40 flex items-center justify-center gap-2"
